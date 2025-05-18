@@ -4,8 +4,8 @@
   "description": "Portal WEB para escanear QR",
   "main": "./lib/portal.http.cjs",
   "files": [
-    "./dist/*",
-    "./lib/portal.http.cjs"
+    "dist/",
+    "lib/portal.http.cjs"
   ],
   "scripts": {
     "build": "qwik build",
@@ -14,12 +14,15 @@
     "build.server": "vite build -c adaptors/static/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
     "dev": "vite --mode ssr",
-    "start": "vite --open --mode ssr",
-    "preview": "npm run build.preview && vite preview --open",
-    "lint": "eslint \"src/**/*.ts*\"",
+    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
-    "prepack": "npm run build" 
+    "lint": "eslint \"src/**/*.ts*\"",
+    "preview": "npm run build.preview && vite preview --open",
+    "start": "vite --open --mode ssr",
+    "deploy": "echo 'Run \"npm run qwik add\" to install a server adaptor'",
+    "qwik": "qwik",
+    "prepack": "npm run build"
   },
   "dependencies": {
     "kleur": "^4.1.5",
@@ -47,5 +50,5 @@
     "type": "git",
     "url": "https://github.com/jhoanchq/bot-whatsapp-portal"
   },
-  "license": "ISC"
+  "license": "MIT"
 }
