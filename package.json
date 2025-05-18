@@ -7,6 +7,25 @@
     "./dist/*",
     "./lib/portal.http.cjs"
   ],
+  "scripts": {
+    "build": "qwik build",
+    "build.client": "vite build",
+    "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.server": "vite build -c adaptors/static/vite.config.ts",
+    "build.types": "tsc --incremental --noEmit",
+    "dev": "vite --mode ssr",
+    "start": "vite --open --mode ssr",
+    "preview": "npm run build.preview && vite preview --open",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "fmt": "prettier --write .",
+    "fmt.check": "prettier --check .",
+    "prepack": "npm run build" 
+  },
+  "dependencies": {
+    "kleur": "^4.1.5",
+    "polka": "^0.5.2",
+    "serve-static": "^1.13.1"
+  },
   "devDependencies": {
     "@builder.io/qwik": "0.16.2",
     "@builder.io/qwik-city": "0.0.128",
@@ -24,29 +43,9 @@
     "vite": "4.0.3",
     "vite-tsconfig-paths": "3.5.0"
   },
-  "dependencies": {
-    "kleur": "^4.1.5",
-    "polka": "^0.5.2",
-    "serve-static": "^1.13.1"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jhoanchq/-bot-whatsapp/tree/main/portal"
+    "url": "https://github.com/jhoanchq/bot-whatsapp-portal"
   },
-  "scripts": {
-    "build": "qwik build",
-    "build.client": "vite build",
-    "build.preview": "vite build --ssr src/entry.preview.tsx",
-    "build.server": "vite build -c adaptors/static/vite.config.ts",
-    "build.types": "tsc --incremental --noEmit",
-    "deploy": "echo 'Run \"npm run qwik add\" to install a server adaptor'",
-    "dev": "vite --mode ssr",
-    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
-    "fmt": "prettier --write .",
-    "fmt.check": "prettier --check .",
-    "lint": "eslint \"src/**/*.ts*\"",
-    "preview": "qwik build preview && vite preview --open",
-    "start": "vite --open --mode ssr",
-    "qwik": "qwik"
-  }
+  "license": "ISC"
 }
